@@ -15,6 +15,7 @@ public class RunController {
 	 * but are present in final product only as raw materials. 
 	 * 
 	 */
+	/**This is the main class, which controls the whole process*/
 	
 	private static String consFile;
 	private static String prodFile;
