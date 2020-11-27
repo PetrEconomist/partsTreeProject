@@ -1,8 +1,0 @@
-<<<<<<< HEAD
-maybe I'll write something else
-=======
-notes first file
-I think there should be more...
-or even more..
-fourth line, that's it
->>>>>>> 42f13f5598d399c1568198db631f091c8087a66f

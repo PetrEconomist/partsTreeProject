@@ -55,6 +55,9 @@ class ProdSchema {
 		if(prodTree.containsKey(prodID)) {
 			return prodTree.get(prodID);
 		}else {
+			if(prodID.equals(new String("0515403"))) {
+				System.out.printf("vypisuji spotøebu 0515403");
+			}
 			HashMap<String, Double> emptyMap = new HashMap<String, Double>();
 			emptyMap.put("no production", 0.00);
 			return emptyMap;

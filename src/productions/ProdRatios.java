@@ -30,15 +30,16 @@ public class ProdRatios {
 	private void setProdRatios(Producer prod, Purchaser purch) {
 		
 		// ratio: production/(production+purchases)
-		Set<String> purchIDs = purch.getPurchasedIDs();
+		Set<String> prodIDs = prod.getProducts();
 		//counters for status console
 		int counter = 1;
-		int totalCount = purchIDs.size();
+		int totalCount = prodIDs.size();
 		
-		for(String id : purchIDs) {
+		for(String id : prodIDs) {
 			System.out.printf("calculation production ratios item %d/%d\n", counter++, totalCount);
 			double prodQt = prod.getProducedQuantity(id);
-			double ratio = prodQt / (prodQt + purch.getPurQuantity(id)); 
+			double purchQt = purch.getPurQuantity(id);
+			double ratio = prodQt / (prodQt + purchQt); 
 			prodRatios.put(id, ratio);
 		}
 	}

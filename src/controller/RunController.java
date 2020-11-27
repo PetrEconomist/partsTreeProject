@@ -38,8 +38,16 @@ public class RunController {
 	}
 	
 	private static void setFileNames(String[] args) {
-System.out.printf("loaded %d arguments", args.length);
-		
+		System.out.printf("loaded %d arguments\n", args.length);
+		if(args.length==0) {
+			String testResponse = consoleReader.getStringFromConsole("Is this WJ21Q2 test (y/n)?");
+			if(testResponse.equals(new String("y"))) {
+				args = new String[1];
+				args[0] = "consumptionsWJ21Q2.txt;productionsWJ21Q2.txt;purchasesWJ21Q2.txt;outputWJ21Q2.txt";
+				args=args[0].split(";");
+				System.out.printf("%s\n", Arrays.toString(args));
+			}
+		}
 		if(args.length==1){
 			 System.out.printf("delimiting using ; separator\n");
 				args=args[0].split(";");

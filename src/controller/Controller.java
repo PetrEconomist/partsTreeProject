@@ -55,14 +55,14 @@ public class Controller {
 		
 	/**
 	 * Saves diluted production per piece into the file
-	 * Lists only parts given in input.
+	 * Lists only parts given in input.f
 	 * @param fileNameOutput name of the file for output
 	 * @param fileNameInput name of file with products to be listed in output
 	 */
 	public void loadDilCon(String fileNameOutput, String fileNameInput) {
 		String[] products = ReadFile.getFileAsList(fileNameInput).toArray(new String[0]);
 		for(String prodID : products) {
-			System.out.printf("Saving diluted production of %s into %s", prodID, fileNameOutput);
+			System.out.printf("Saving diluted production of %s into %s\n", prodID, fileNameOutput);
 			WriteFile.writeIntoFile(fileNameOutput, cons.getDilConPP(prodID));
 		}
 	}

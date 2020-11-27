@@ -50,7 +50,9 @@ public class Purchaser {
 	 * @return purchased volume in ID's units
 	 */
 	double getPurQuantity(String ID) {
-		return purchQt.get(ID);
+		if(purchQt.containsKey(ID)){
+			return purchQt.get(ID);
+		}else return 0;
 	}
 	
 	/**
