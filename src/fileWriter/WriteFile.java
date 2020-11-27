@@ -16,12 +16,12 @@ public class WriteFile {
 	    try {
 	      File myObj = new File(fileName);
 	      if (myObj.createNewFile()) {
-	        System.out.println("File created: " + myObj.getName());
+	        System.out.printf("File created: %s\n", myObj.getName());
 	      } else {
-	        System.out.println("File already exists.");
+	        System.out.printf("File already exists.\n");
 	      }
 	    } catch (IOException e) {
-	      System.out.println("An error occurred.");
+	      System.out.printf("An error occurred.\n");
 	      e.printStackTrace();
 	    }
 	}

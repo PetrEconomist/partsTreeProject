@@ -117,9 +117,6 @@ public class Consumer {
 	 * 
 	 */
 	private void diluteID(String itemID, double prodRatio) throws Exception{
-		if(itemID.equals(new String("0515403"))) {
-			System.out.printf("diluting 0515403");
-		}
 		if(dilutedProdSchema.isIDProduced(itemID))return; //already finished branch (already diluted)
 		//not raw material
 		if(prodSchemaPP.isIDProduced(itemID)) {
