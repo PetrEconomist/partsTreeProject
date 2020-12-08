@@ -1,10 +1,12 @@
 package productions;
 
+import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Set;
 
 import fileReader.ReadFile;
+import fileWriter.WriteFile;
 
 /**
  * Class for storage and processing of data about purchases
@@ -24,7 +26,15 @@ public class Purchaser {
 		for(String s : input) {
 			int sepPos1 = s.indexOf(";");
 			String id = s.substring(0, sepPos1);
-			Double quantity = Double.parseDouble(s.substring(sepPos1+1));
+			Double quantity = 0.0;
+			try {
+				quantity = Double.parseDouble(s.substring(sepPos1+1));
+			}catch(Exception e) {
+				String[] errorMessage = new String[1];
+				errorMessage[0] = "Filed to set quantity for input " + s + " from input file " + inputFile + 
+						" line " + input.indexOf(s) + " ended with error " + e;
+				WriteFile.writeIntoFile("errorLog.txt", errorMessage);
+			}
 			addItem(id, quantity);
 		}
 				
