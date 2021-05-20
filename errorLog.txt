@@ -1,1 +1,0 @@
-Filed to set quantity for input (prázdné);from input file pu78.txt line 997 ended with error java.lang.NumberFormatException: empty String

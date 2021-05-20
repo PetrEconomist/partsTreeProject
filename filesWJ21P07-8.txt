@@ -1,1 +1,0 @@
-consumptionsWJ21P07-8.txt;productionsWJ21P07-8.txt;purchasesWJ21P07-8.txt;outputWJ21P07-8.txt
