@@ -8,31 +8,7 @@ class GUI{
 	
 
 	
-	private static JMenuBar setupMenuBar() {
-		JMenuBar menuBar = new JMenuBar();
-		JMenu menuFiles = new JMenu("Files");
-        JMenu menuHelp = new JMenu("Help");
-        JMenu menuExamples = new JMenu("Java examples");
-        menuBar.add(menuFiles);
-        menuBar.add(menuHelp);
-        menuBar.add(menuExamples);
-        JMenuItem m11 = new JMenuItem("Open");
-        JMenuItem m22 = new JMenuItem("Save as");
-        JMenuItem beepItem = new JMenuItem("Beep");
-        menuFiles.add(m11);
-        menuFiles.add(m22);
-        menuExamples.add(beepItem);
-        
-        ActionListener beepListener = new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		System.out.printf("beeped");
-        		Toolkit.getDefaultToolkit().beep();
-        	}
-        };
-        beepItem.addActionListener(beepListener);
-        
-        return menuBar;
-	}
+	
 	
     public static void main(String args[]) {
 
@@ -66,5 +42,35 @@ class GUI{
         frame.setVisible(true);
     }
 
-	
+    private static JMenuBar setupMenuBar() {
+		JMenuBar menuBar = new JMenuBar();
+		JMenu menuFiles = new JMenu("Files");
+        JMenu menuHelp = new JMenu("Help");
+        JMenu menuExamples = setupMenuExamples();
+        menuBar.add(menuFiles);
+        menuBar.add(menuHelp);
+        menuBar.add(menuExamples);
+        JMenuItem m11 = new JMenuItem("Open");
+        JMenuItem m22 = new JMenuItem("Save as");
+        
+        menuFiles.add(m11);
+        menuFiles.add(m22);
+        
+        return menuBar;
+	}
+    
+    private static JMenu setupMenuExamples() {
+    	JMenu menuExamples = new JMenu("Java examples");
+    	JMenuItem beepItem = new JMenuItem("Beep");
+    	menuExamples.add(beepItem);
+    	
+    	ActionListener beepListener = new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		System.out.printf("beeped\n");
+        	}
+        };
+        beepItem.addActionListener(beepListener);
+    	return menuExamples;
+    }
+    
 }
