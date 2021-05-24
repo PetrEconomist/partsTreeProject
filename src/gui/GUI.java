@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 class GUI{
 	
 
@@ -44,32 +45,62 @@ class GUI{
 
     private static JMenuBar setupMenuBar() {
 		JMenuBar menuBar = new JMenuBar();
-		JMenu menuFiles = new JMenu("Files");
-        JMenu menuHelp = new JMenu("Help");
+		JMenu menuFiles = setupMenuFiles();
+		JMenu menuHelp = setupMenuHelp();
         JMenu menuExamples = setupMenuExamples();
         menuBar.add(menuFiles);
         menuBar.add(menuHelp);
         menuBar.add(menuExamples);
-        JMenuItem m11 = new JMenuItem("Open");
-        JMenuItem m22 = new JMenuItem("Save as");
-        
-        menuFiles.add(m11);
-        menuFiles.add(m22);
         
         return menuBar;
 	}
     
+    private static JMenu setupMenuFiles() {
+    	JMenu menuFiles = new JMenu("Files");
+    	JMenuItem itemOpen = new JMenuItem("Open");
+        JMenuItem itemSaveAs = new JMenuItem("Save as");
+        
+        menuFiles.add(itemOpen);
+        menuFiles.add(itemSaveAs);
+    	
+    	return menuFiles;
+    }
+    
+    private static JMenu setupMenuHelp() {
+    	JMenu menuHelp = new JMenu("Help");
+    	
+    	return menuHelp;
+    }
+    
     private static JMenu setupMenuExamples() {
     	JMenu menuExamples = new JMenu("Java examples");
     	JMenuItem beepItem = new JMenuItem("Beep");
+    	JMenuItem whereAmIItem = new JMenuItem("where am I");
     	menuExamples.add(beepItem);
+    	menuExamples.add(whereAmIItem);
     	
     	ActionListener beepListener = new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		System.out.printf("beeped\n");
         	}
         };
+        
+        ActionListener beepListener2 = new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		System.out.printf("beeped two\n");
+        	}
+        };
+        
+        ActionListener whereAmIListener = new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		File f = new File("OutFile.txt"); 
+        		System.out.println("f.getAbsolutePath() = " + f.getAbsolutePath());
+        	}
+        };
+        
         beepItem.addActionListener(beepListener);
+        beepItem.addActionListener(beepListener2);
+        whereAmIItem.addActionListener(whereAmIListener);
     	return menuExamples;
     }
     
